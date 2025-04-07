@@ -6,6 +6,7 @@ from banco import SGBD
 #No Mysql:
 # User: marininha44@gmail.com  | Senha: marininha44
 
+#Janela Principal estrutura: Metodo Logar(), Acesso a Classe Banco de dados com metodo Conectado().
 
 janela = ctk.CTk()
 ctk.set_appearance_mode("dark")
@@ -49,14 +50,15 @@ def Janela_Cadastro():
     ctk.set_appearance_mode("dark")
     janela_cadastro.title("Cadastro de Usuário")
 
+    
 
-    texto_cadastro = ctk.CTkLabel(janela_cadastro, text="Realizar Cadastro", bg_color=" ")
+    texto_cadastro = ctk.CTkLabel(janela_cadastro, text="Realizar Cadastro", bg_color="DarkBlue")
     texto_cadastro.pack(padx=10, pady=10)
 
     texto_dados = ctk.CTkLabel(janela_cadastro, text="Seus dados:")
     texto_dados.pack(padx=10, pady=10)
 
-    nome_cadastro_entry = ctk.CTkEntry(janela_cadastro, placeholder_text="Seu Nome: ")
+    nome_cadastro_entry = ctk.CTkEntry(janela_cadastro, placeholder_text="Seu Nome: ", )
     nome_cadastro_entry.pack(padx=10, pady=10)
 
     email_cadastro_entry = ctk.CTkEntry(janela_cadastro, placeholder_text="Seu E-mail")
@@ -71,12 +73,10 @@ def Janela_Cadastro():
     senha2_cadastro_entry = ctk.CTkEntry(janela_cadastro, placeholder_text="Confirme sua senha", show="*")
     senha2_cadastro_entry.pack(padx=10, pady=10)
 
-    mensagem_cadastro = ctk.CTkLabel(janela_cadastro, text="", text_color="red")
-    mensagem_cadastro.pack(padx=10, pady=10)
 
     janela_cadastro.mainloop()
 
-
+#Janela Principal Interface
 
 janela.geometry("500x280")
 
