@@ -1,0 +1,11 @@
+# Utilizando o CTK, CustomTkinter e Mysql Conector
+# Programação orientada a objetos;
+# Função, Classes e Metodos.
+# Mysql;
+# Linguagem SQL;
+
+Objetivos: 
+- Criar uma interface que se comunique com o Banco de dados, permitindo o acesso a plataforma.
+- Cadastrar usuários sem duplicar CPFS e E-mails.
+- Sequência de testes que permitem agilizar e organizar dados para programadores de SQL/ Administradores de banco de dados.
+- Interface para o usuário e Leigos no sistema.
