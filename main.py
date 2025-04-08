@@ -16,7 +16,13 @@ janela.geometry("500x280")        # Proporção da Janela ( Largura x Altura )
 
 
 banco_dados = SGBD()              # Renomeando a Classe SGBD para a variavel: banco_dados, nesse arquivo.
-def Logar():                                # Criando o metodo de Logar()
+
+
+
+
+# Criando a função de Logar() , nessa função estará armazenado uma serie de ações após utilizar o botão do CTK, sendo armazendo no: Command = Logar(). Possibilitando o Login na plataforma.
+
+def Logar():                                
     email = email_login.get()               # Obtendo a variavel global por meio da função get() 
     senha = senha_login.get()               # Obtendo a variavel global por meio da função get() 
 
@@ -49,19 +55,22 @@ def Logar():                                # Criando o metodo de Logar()
         print("Erro: Não há conexão com o banco de dados. Não é possível logar.")
 
 
+
+# Criando a Função Janela_Cadastro, pois essa função será armazenada no botão criado pelo CTK. Nessa modalidade, uma serie de comandos realizará a abertura da janela Cadastro e suas ações junto com sua interface.
+
 def Janela_Cadastro():
     janela_cadastro = ctk.CTkToplevel(janela)
     janela_cadastro.geometry("300x600")
     janela_cadastro.title("Cadastro de Usuário")
 
-    texto_cadastro = ctk.CTkLabel(janela_cadastro, text=" Realizar Cadastro", fg_color="DarkBlue", bg_color="White")
-    texto_cadastro.pack(padx=10, pady=10)
+    texto_cadastro = ctk.CTkLabel(janela_cadastro, text=" Realizar Cadastro", fg_color="DarkBlue", bg_color="White")    #fg_color - É a cor da letra. Foreground ou Text_colour | e bg_color - É a cor do fundo, como marca texto. Background_color
+    texto_cadastro.pack(padx=10, pady=10)                                                                               # Lembrando que: fg_colour / bg_colour = CTk       e           fg / bg = TKinter
 
-    texto_dados = ctk.CTkLabel(janela_cadastro, text=" Seus dados:")
+    texto_dados = ctk.CTkLabel(janela_cadastro, text=" Seus dados:")                                                    # CTkLabel - Permite a visualização de textos na interface, sua estrutura é: ( Janela= "" , texto= "" , bg_colour = "")
     texto_dados.pack(padx=10, pady=10)
 
-    nome_cadastro= ctk.CTkEntry(janela_cadastro, placeholder_text="Seu Nome: ")
-    nome_cadastro.pack(padx=10, pady=10)
+    nome_cadastro= ctk.CTkEntry(janela_cadastro, placeholder_text="Seu Nome: ")                                         # CTkEntry - Permite a entrada de dados.
+    nome_cadastro.pack(padx=10, pady=10)                                                                                # 
 
     email_cadastro = ctk.CTkEntry(janela_cadastro, placeholder_text="Seu E-mail")
     email_cadastro.pack(padx=10, pady=10)
@@ -119,7 +128,7 @@ def Janela_Cadastro():
 
 
 
-
+# Botão do CTK que armazena o comando Tentar_Cadastro, ou seja um conjunto de verificações que possibilita a entrada desse novo dado no banco de dados.
 
     botao_cadastro = ctk.CTkButton(janela_cadastro, text="Realizar Cadastrar", command=Tentar_Cadastro, bg_color="DarkBlue")
     botao_cadastro.pack(padx=10, pady=5)
@@ -150,7 +159,5 @@ botao_cadastro.pack(padx=10, pady=5)
 
 janela.mainloop()
 
-if __name__ == "__main__":
-    pass
 
 
