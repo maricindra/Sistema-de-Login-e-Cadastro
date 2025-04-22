@@ -91,6 +91,11 @@ def Janela_Cadastro():
                     Novo_usuario = banco_dados.Inserir_usuario(cpf,email,senha, nome)
                     informe_Cad = ctk.CTkLabel(janela_cadastro, text=" Bem vindo! Novo usuário Cadastrado")
                     informe_Cad.pack(padx=10, pady=10)
+
+                    janela_cadastro.destroy() # Caso chegue nesse teste: Se as senhas forem iguais = inserir no Banco de dados e fechar Janela_Cadastro.
+
+
+                
                 else:
                     print("Senhas não coincidem")
                     informe_Cad = ctk.CTkLabel(janela_cadastro, text="Senhas não coincidem")
@@ -107,8 +112,8 @@ def Janela_Cadastro():
     janela_cadastro.geometry("300x600")
     janela_cadastro.title("Cadastro de Usuário")
 
-    texto_cadastro = ctk.CTkLabel(janela_cadastro, text=" Realizar Cadastro", fg_color="DarkBlue", bg_color="White")    #fg_color - É a cor da letra. Foreground ou Text_colour | e bg_color - É a cor do fundo, como marca texto. Background_color
-    texto_cadastro.pack(padx=10, pady=10)                                                                               # Lembrando que: fg_colour / bg_colour = CTk       e           fg / bg = TKinter
+    texto_cadastro = ctk.CTkLabel(janela_cadastro, text="Crie seu Cadastro:")
+    texto_cadastro.pack(padx=10, pady=10)
 
     texto_dados = ctk.CTkLabel(janela_cadastro, text=" Seus dados:")                                                    # CTkLabel - Permite a visualização de textos na interface, sua estrutura é: ( Janela= "" , texto= "" , bg_colour = "")
     texto_dados.pack(padx=10, pady=10)
