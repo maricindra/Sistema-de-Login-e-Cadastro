@@ -18,7 +18,7 @@ class SGBD:                                          # Criando a Classe SGBD, at
 
 
         
-        if self.conector.is_connected():                  # Teste que verifica se há conexão do MYSQL na classe SGBD, por meio da varivel conector, utilizando a função .is_connecter(),
+        if self.conector.is_connected():                  # Teste que verifica se há conexão do MYSQL na classe SGBD, por meio da varivel conector, utilizando a função .is_connected(),
             print("Conectado ao banco de Dados")
         else:                                              # Teste que verifica se há conexão do MYSQL
             print("Falha ao conectar ao banco de Dados")
@@ -43,40 +43,40 @@ class SGBD:                                          # Criando a Classe SGBD, at
 
 
 
-    def verificar_email_existe(self, email):
+    def verificar_email_existe(self, email):                                        # Função dinamica que realiza a pesquisa no banco de dados, especificamente a pesquisa de Email.
         if self.esta_conectado():
-            query = "SELECT COUNT(*) FROM usuarios WHERE email = %s;"
-            self.cursor.execute(query, (email,))
-            resultado = self.cursor.fetchone()
-            return resultado[0] > 0
+            query = "SELECT COUNT(*) FROM usuarios WHERE email = %s;"               #Query/ pesquisa = Conte todos os selecionados que aparecem, na tabela usuário, onde o email é (%string / caractere)
+            self.cursor.execute(query, (email,))                                    #Cursor/ pesquisador, execute o comando query, com a variavel dinamica recebida. ( que será entregue no arquivo main.py)
+            resultado = self.cursor.fetchone()                                      # Resultado armazena o comando fetchone(), no qual armazena o resultado da consulta em tuplas = lista imutavel, q não permitem alteração;
+            return resultado[0] > 0                                                 # retorna ao elemento inicial se for maior que zero, ou seja permite o armazenamento novamente da função fecthone pelo cursor na variavel resultado.
         else:
             print("Erro: Não há conexão válida com o banco de dados.")
             return False
 
-    def verificar_cpf_existe(self, cpf):
-        if self.esta_conectado():
+    def verificar_cpf_existe(self, cpf):                                        # Função dinamica que realiza a pesquisa no banco de dados, especificamente a pesquisa de CPF.
+        if self.esta_conectado():               
             query = "SELECT COUNT(*) FROM usuarios WHERE email = %s;"
             self.cursor.execute(query, (cpf,))
             resultado = self.cursor.fetchone()
-            return resultado[0] > 0
+            return resultado[0] > 0                                             # Caso no Houvesse o return o valor do resultado retornaria a none, sem armazenamento de presquisa na variavel resultado, zerando-o independende do resultado.
 
-    def verificar_senha(self, email, senha):
+    def verificar_senha(self, email, senha):                                   # Função dinamica que realiza a pesquisa no banco de dados, especificamente a pesquisa da senha.
         if self.esta_conectado():
             query = "SELECT senha FROM usuarios WHERE email = %s;"
             self.cursor.execute(query, (email,))
-            resultado = self.cursor.fetchone()
+            resultado = self.cursor.fetchone()                                
             if resultado:
-                return resultado[0] == senha
+                return resultado[0] == senha                                # Caso não encontre nenhuma senha no sistema, retorne para Falso, se senha = 0, não esta no sistema.
             return False
         else:
             print("Erro: Não há conexão válida com o banco de dados.")
             return False
 
-    def Inserir_usuario(self, cpf, email, senha, nome):
+    def Inserir_usuario(self, cpf, email, senha, nome):                       # Função dinamica que realiza a entrada de dados no Sistema, Mysql.
         if self.esta_conectado():
             sql = "INSERT INTO usuarios (cpf, email, senha, nome) VALUES (%s, %s, %s , %s)"
             self.cursor.execute(sql, (cpf, email, senha, nome))
-            self.conector.commit()
+            self.conector.commit()                                                 # Comando que finaliza o armazenamento de dados, tornando permanente o dado no sistema.
             print("Usuário cadastrado com sucesso!")
             return True
         else:
