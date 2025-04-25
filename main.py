@@ -32,7 +32,7 @@ def Logar():
                 print("Login bem-sucedido!")                   # Incluido para teste no terminal, no entanto, não aparece na interface
                 
                 #Após o Login na plataforma
-                janela2 = ctk.CTk()                            # Caso os testes ( Banco conectado, email verificado no mysql, senha verificada no mysql, forem > 1. O acesso a plataforma será iniciado em uma nova Janela.
+                janela2 = ctk.CTk()                            # Caso os testes ( Banco conectado, email verificado no mysql, senha verificada no mysql, forem >= 1. O acesso a plataforma será iniciado em uma nova Janela.
                 janela2.geometry("500x280")                    # Proporção da Janela2
                 texto_janela2 = ctk.CTkLabel(janela2, text="Bem vindo a Plataforma")       # Texto que informa a entrada na plataforma
                 texto_janela2.pack(padx=10, pady=10)                                       # Posição do texto Acima, sem a posição o texto não aparece!
