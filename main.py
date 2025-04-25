@@ -20,7 +20,7 @@ banco_dados = SGBD()              # Renomeando a Classe SGBD para a variavel: ba
 
 
 
-# Criando a função de Logar() , nessa função estará armazenado uma serie de ações após utilizar o botão do CTK, sendo armazendo no: Command = Logar(). Possibilitando o Login na plataforma.
+# Criando a função de Logar() , nessa função estará armazenado uma serie de ações após utilizar o botão do CTK, sendo armazenado no: Command = Logar(). Possibilitando o Login na plataforma.
 
 def Logar():                                
     email = email_login.get()               # Obtendo a variavel global por meio da função get() 
